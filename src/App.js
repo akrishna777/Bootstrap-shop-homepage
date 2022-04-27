@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/styles.css'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Navbar from './components/Navbar'
+import Section from './components/Section'
+import { useState } from 'react'
 
 function App() {
+  const [cart, setCart] = useState(0)
+
+  const handleReset = ({ isActive, setIsActive }) => {
+    setCart(0)
+    setIsActive(true)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar cart={cart} setCart={setCart} handleReset={handleReset} />
+      <Header />
+      <Section cart={cart} setCart={setCart} handleReset={handleReset} />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
