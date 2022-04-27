@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const Navbar = ({ cart, setCart, handleReset }) => {
+const Navbar = ({ cart, setCart }) => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
@@ -73,13 +73,6 @@ const Navbar = ({ cart, setCart, handleReset }) => {
               <span class="badge bg-dark text-white ms-1 rounded-pill">
                 {cart}
               </span>
-            </button>
-            <button
-              class="btn btn-outline-dark mx-2"
-              type="submit"
-              onClick={() => handleReset(cart)}
-            >
-              Reset
             </button>
           </form>
         </div>

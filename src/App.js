@@ -8,16 +8,11 @@ import { useState } from 'react'
 function App() {
   const [cart, setCart] = useState(0)
 
-  const handleReset = ({ isActive, setIsActive }) => {
-    setCart(0)
-    setIsActive(true)
-  }
-
   return (
     <div>
-      <Navbar cart={cart} setCart={setCart} handleReset={handleReset} />
+      <Navbar cart={cart} setCart={setCart} />
       <Header />
-      <Section cart={cart} setCart={setCart} handleReset={handleReset} />
+      <Section cart={cart} setCart={setCart} />
       <Footer />
     </div>
   )

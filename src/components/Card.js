@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Star from './Star'
 
 const Card = ({
   cart,
@@ -9,21 +8,19 @@ const Card = ({
   oldPrice,
   newPrice,
   sale,
-  addToCart,
   button,
-  card,
-  handleReset,
 }) => {
-  const [isActive, setIsActive] = useState(true)
-
-  const handleCart = (card) => {
+  const handleAddToCart = () => {
     setCart((prevCart) => prevCart + 1)
-    console.log(card)
-    setIsActive(false)
+    setRemoveFromCart(true)
   }
 
-  let classes = 'btn btn-outline-dark mt-auto'
-  classes += !isActive ? ' disabled' : ''
+  const handleRemoveFromCart = () => {
+    setCart((prevCart) => prevCart - 1)
+    setRemoveFromCart(false)
+  }
+
+  const [removeFromCart, setRemoveFromCart] = useState(false)
 
   return (
     <div class="col mb-5">
@@ -70,9 +67,23 @@ const Card = ({
         {/* <!-- Product actions--> */}
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div class="text-center">
-            <a class={classes} href="#" onClick={() => handleCart(card)}>
-              {button}
-            </a>
+            {removeFromCart ? (
+              <a
+                class="btn btn-outline-dark mt-auto"
+                href="#"
+                onClick={() => handleRemoveFromCart()}
+              >
+                Remove from cart
+              </a>
+            ) : (
+              <a
+                class="btn btn-outline-dark mt-auto"
+                href="#"
+                onClick={() => handleAddToCart()}
+              >
+                {button}
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Card from './Card'
 import Star from './Star'
 
-const Section = ({ cart, setCart, handleReset }) => {
+const Section = ({ cart, setCart }) => {
   const cardData = [
     {
       title: 'Fancy Product',
@@ -85,18 +85,14 @@ const Section = ({ cart, setCart, handleReset }) => {
           {cardData.map((card, index) => (
             <Card
               key={index}
-              id={index}
               title={card.title}
               rating={card.rating}
               oldPrice={card.oldPrice}
               newPrice={card.newPrice}
               sale={card.sale}
-              addToCart={card.addToCart}
               button={card.button}
               cart={cart}
               setCart={setCart}
-              card={card}
-              handleReset={handleReset}
             />
           ))}
         </div>
