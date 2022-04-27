@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Navbar = ({ cart, setCart }) => {
+  let [collapse, setCollapse] = useState(true)
+  let [navButton, setNavButton] = useState(true)
+  let [ariaExpanded, setAriaExpanded] = useState(false)
+
+  const handleExpandNavbar = () => {
+    setCollapse((prevCollapse) => !prevCollapse)
+    setNavButton((prevnavButton) => !prevnavButton)
+    setAriaExpanded((prevAriaExpanded) => !prevAriaExpanded)
+  }
+
+  let navbarClass = ''
+  navbarClass += collapse
+    ? 'navbar-collapse collapse'
+    : 'navbar-collapse collapse show'
+
+  let navButtonClass = ''
+  navButtonClass += navButton ? 'navbar-toggler collapsed' : 'navbar-toggler'
+
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
@@ -8,17 +26,18 @@ const Navbar = ({ cart, setCart }) => {
           Start Bootstrap
         </a>
         <button
-          class="navbar-toggler"
+          class={navButtonClass}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded={ariaExpanded}
           aria-label="Toggle navigation"
+          onClick={handleExpandNavbar}
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class={navbarClass} id="navbarSupportedContent" style={{}}>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#!">
