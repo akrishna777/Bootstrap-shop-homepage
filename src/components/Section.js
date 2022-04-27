@@ -40,6 +40,42 @@ const Section = ({ cart, setCart, handleReset }) => {
       addToCart: true,
       button: 'Add to cart',
     },
+    {
+      title: 'Sale Item',
+      rating: '',
+      oldPrice: '$50.00',
+      newPrice: '$25.00',
+      sale: true,
+      addToCart: true,
+      button: 'Add to cart',
+    },
+    {
+      title: 'Fancy Product',
+      rating: '',
+      oldPrice: '',
+      newPrice: '$120.00 - $280.00',
+      sale: false,
+      addToCart: false,
+      button: 'View options',
+    },
+    {
+      title: 'Special Item',
+      rating: [<Star />, <Star />, <Star />, <Star />, <Star />],
+      oldPrice: '$20.00',
+      newPrice: '$18.00',
+      sale: true,
+      addToCart: true,
+      button: 'Add to cart',
+    },
+    {
+      title: 'Popular Item',
+      rating: [<Star />, <Star />, <Star />, <Star />, <Star />],
+      oldPrice: '',
+      newPrice: '$40.00',
+      sale: false,
+      addToCart: true,
+      button: 'Add to cart',
+    },
   ]
 
   return (
